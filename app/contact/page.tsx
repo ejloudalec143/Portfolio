@@ -44,9 +44,10 @@ export default function ContactPage() {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
-    } catch {
-      toast.error('Failed to send. Try again later.');
-    } finally {
+    } catch (error) {
+  console.error(error); // Optional: helpful for debugging
+  toast.error('Failed to send. Try again later.');
+} finally {
       setIsSending(false);
     }
   };
