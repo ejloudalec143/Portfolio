@@ -17,11 +17,11 @@ export default function Home() {
           {/* Left Side – Text */}
           <div className="text-center sm:text-left sm:w-1/2">
             <h1 className="text-4xl sm:text-6xl font-bold mb-4 leading-tight tracking-tight drop-shadow-md">
-              Hey, it's me <span className="text-blue-400">EJ Loudale M. Cañete</span>
+              Hey, it&apos;s me <span className="text-blue-400">EJ Loudale M. Cañete</span>
             </h1>
 
             <h2 className="text-xl sm:text-3xl text-gray-300 mb-4 tracking-wide drop-shadow-sm">
-              And I'm a{" "}
+              And I&apos;m a{" "}
               <span className="text-blue-400 font-semibold">
                 <Typewriter
                   words={[
@@ -44,7 +44,7 @@ export default function Home() {
 
             <p className="text-base sm:text-lg text-gray-300 mb-6 max-w-lg drop-shadow-sm leading-relaxed">
               I build high-performance web and mobile apps, automate systems
-              with IoT, and design resilient network solutions. Whether it’s
+              with IoT, and design resilient network solutions. Whether it&apos;s
               frontend, backend, or infrastructure, I deliver full-stack
               solutions that work beautifully.
             </p>
