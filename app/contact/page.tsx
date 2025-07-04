@@ -2,18 +2,25 @@
 
 import Navbar from '@/components/NavBar';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
   const [isSending, setIsSending] = useState(false);
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.message) {
@@ -37,7 +44,7 @@ export default function ContactPage() {
       await emailjs.send(serviceId, templateId, templateParams, publicKey);
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
+    } catch {
       toast.error('Failed to send. Try again later.');
     } finally {
       setIsSending(false);
@@ -50,7 +57,6 @@ export default function ContactPage() {
       <Toaster position="top-right" />
       <div className="min-h-screen bg-[url('/bg1.jpg')] bg-cover bg-center text-white relative pt-28 px-4 sm:px-12">
         <div className="absolute inset-0 bg-black/60 z-0" />
-
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <motion.h1
             className="text-5xl sm:text-6xl font-bold text-blue-300 mb-8"
@@ -60,7 +66,6 @@ export default function ContactPage() {
           >
             Contact Me
           </motion.h1>
-
           <p className="text-gray-300 text-lg mb-10">
             Got a project in mind, a question, or just want to connect? Drop a message below!
           </p>
@@ -100,7 +105,7 @@ export default function ContactPage() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                rows="5"
+                rows={5}
                 className="w-full px-4 py-2 rounded-md bg-white/20 text-white border border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
