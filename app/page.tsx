@@ -1,5 +1,9 @@
 'use client';
 
 export default function Home() {
-  return <h1>Hello World</h1>;
+  return (
+    <div style={{ color: 'white', padding: '40px', fontSize: '2rem' }}>
+      Hello from <strong>Next.js</strong> with TypeScript!
+    </div>
+  );
 }

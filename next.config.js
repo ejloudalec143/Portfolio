@@ -2,8 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true, // <- ✅ required for /app
+    appDir: true, // optional if you're using the /app folder
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
