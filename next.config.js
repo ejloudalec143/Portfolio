@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true, // optional if you're using the /app folder
-  },
+  // Remove experimental.appDir — it's now default
 };
 
 module.exports = nextConfig;
