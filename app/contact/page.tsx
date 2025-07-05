@@ -1,6 +1,3 @@
-
-
-
 'use client';
 
 import Navbar from '@/components/NavBar';
@@ -48,9 +45,9 @@ export default function ContactPage() {
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-  console.error(error); // Optional: helpful for debugging
-  toast.error('Failed to send. Try again later.');
-} finally {
+      console.error(error); // ✅ Using 'error' to avoid ESLint warning
+      toast.error('Failed to send. Try again later.');
+    } finally {
       setIsSending(false);
     }
   };
